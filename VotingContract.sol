@@ -21,8 +21,9 @@ contract VotingContract{
     owner = msg.sender;
   }
 
-  function addCandidate() external{
-
+  function addCandidate(string calldata _name) external isOwner{
+    require(_name,"Pensar como puedo hacer para que un candidato a la vez");
+    candidates.push(Candidate(_name, 0));
   }
 
   function vote() external{
